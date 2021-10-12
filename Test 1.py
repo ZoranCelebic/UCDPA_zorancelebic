@@ -38,3 +38,4 @@ for x in range (10000) :
 x = np.median(final_tails)
 print(x)
 y = np.mean(final_tails)
+print(y)
