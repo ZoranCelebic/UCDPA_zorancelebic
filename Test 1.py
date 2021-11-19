@@ -4,6 +4,10 @@ import pandas as pandas
 import pandas as pd
 import pandas as pd
 import pickle
+import requests
+from bs4 import BeautifulSoup
+import json
+import seaborn as sns
 np.random.seed(123)
 all_walks = []
 for i in range (500):
@@ -39,3 +43,16 @@ x = np.median(final_tails)
 print(x)
 y = np.mean(final_tails)
 print(y)
+x = pd.read_csv("Cars.csv")
+print(x.head())
+toyota_only = x[x["Car"].str.contains("Toyota")]
+y = pd.read_csv("all_games.csv")
+y.drop('summary', axis=1, inplace=True)
+y2 = y.iloc[0:1000]
+sns.countplot(x="platform", data=y2)
+plt.xticks(rotation=90)
+plt.tick_params(direction='out', length=6, width=2, labelsize=7, colors='r',
+               grid_color='r', grid_alpha=0.5)
+plt.subplots_adjust(bottom=0.25)
+
+
