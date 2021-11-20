@@ -19,3 +19,8 @@ dict = {"Switch" : "Nintendo", "Nintendo 64" : "Nintendo", "GameCube" : "Nintend
         "Xbox Series X" : "Microsoft"}
 y.drop_column
 y['Company'] = df['platform'].apply(set_value, args =(dict,))
+df["great_game"] = np.where(
+    (df.meta_score >= 90) & (df.user_review >= 9.0),
+    "yes",
+    "no")
+print(df.head())
