@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 pd.options.mode.chained_assignment = None
+
 #import dataset
 
 y = pd.read_csv("all_games.csv")
@@ -13,6 +14,7 @@ y = pd.read_csv("all_games.csv")
 print(y.head())
 print(y.shape)
 print(y.isnull().sum())
+
 #delete summary column
 
 del y["summary"]
