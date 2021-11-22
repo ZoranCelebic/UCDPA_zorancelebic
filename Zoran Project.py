@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-pd.options.mode.chained_assignment = None
 
 #import dataset
 
@@ -83,7 +82,7 @@ def times_10(x):
 df["user_review"] =(df["user_review"]).apply(times_10)
 
 
-#creating a df great_game that only has great games in it
+#creating a df["meta_user] and new df called great_game that only has great games in it
 
 df["meta_user"] = (df["meta_score"] + df["user_review"]) / 2
 conditions = [
@@ -126,7 +125,7 @@ plt.show()
 #plot point plot of mean user review per company
 
 sns.set_style("darkgrid")
-g3 = sns.catplot(x="Company", y="user_review", data=df, kind="box", ci=None, palette=["r", "b", "g"], sym="", whis=[5, 95])
+g3 = sns.catplot(x="Company", y="user_review", data=df, kind="box", ci=None, palette=["r", "b", "g"], whis=[5, 95])
 g3.fig.suptitle("User review distribution per company", color="darkred", y=0.98)
 g3.set(xlabel="Company", ylabel="User review")
 g3.set_xticklabels(color="darkblue")
@@ -174,9 +173,9 @@ plt.show()
 #plot median meta_user
 
 from numpy import median
-g7 = sns.catplot(x="Company", y="meta_user", data=df, kind="point", ci=None, estimator=median, palette=["r", "b", "g"])
-g7.fig.suptitle("Median Meta_User/2 score per company", y=0.99, color="darkred",)
-g7.set(xlabel="Company", ylabel = "Meta_user score")
+g7 = sns.catplot(x="Company", y="meta_user", data=df, kind="point", ci=None, palette=["r", "b", "g"])
+g7.fig.suptitle("Mean Meta_User/2 score per company", y=1.00, color="darkred",)
+g7.set(xlabel="Company", ylabel = "Meta user score")
 g7.set_xticklabels(color="darkblue")#
 g7.set_yticklabels(color="darkblue")
 plt.savefig("average_meta_user_per_company.jpg")
