@@ -67,11 +67,15 @@ sns.catplot(x="Company", y="user_review", data=df, kind="point", ci=None)
 plt.show()
 sns.lineplot(data=df, x="release_year", y="user_review", hue="Company", ci=None)
 plt.show()
-sns.catplot(data=df,x="platform", y="meta_score", kind="point", hue="Company")
-plt.xticks(rotation=90)
-sns.catplot(data=df,x="platform", y="user_review", kind="point", hue="Company")
-plt.xticks(rotation=90)
-plt.show()
+
+def times10(x):
+    return x * 10
+
+
+df["burek"] = (df["user_review"]).apply(times10)
+print(df["burek"])
+
+
 
 
 
