@@ -14,7 +14,7 @@ print(y.head())
 print(y.shape)
 print(y.isnull().sum())
 
-#delete summary column
+#filling in the summary column
 
 y["summary"].fillna("No Summary", inplace=True)
 
