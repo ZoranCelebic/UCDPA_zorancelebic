@@ -160,6 +160,7 @@ plt.subplots_adjust(bottom=0.35)
 plt.savefig("Meta score per platform.jpg")
 plt.show()
 
+
 g6 = sns.catplot(data=df,x="platform", y="user_review", kind="point", hue="Company", ci=None, palette=["r", "b", "g"])
 g6.fig.suptitle("User review per platform", color="darkred", y=0.98)
 g6.set(xlabel="Company", ylabel="User score")
@@ -170,9 +171,9 @@ plt.subplots_adjust(bottom=0.35)
 plt.savefig("User score per platform.jpg")
 plt.show()
 
+
 #plot median meta_user
 
-from numpy import median
 g7 = sns.catplot(x="Company", y="meta_user", data=df, kind="point", ci=None, palette=["r", "b", "g"])
 g7.fig.suptitle("Mean Meta_User/2 score per company", y=1.00, color="darkred",)
 g7.set(xlabel="Company", ylabel = "Meta user score")
@@ -180,6 +181,7 @@ g7.set_xticklabels(color="darkblue")#
 g7.set_yticklabels(color="darkblue")
 plt.savefig("average_meta_user_per_company.jpg")
 plt.show()
+
 
 #plot corelation heatmap
 
@@ -191,7 +193,9 @@ plt.savefig("Corelation heatmap")
 plt.show()
 
 
-g9 = sns.countplot(x="Company", data=great_game, palette=["r", "b", "g"])
+#ploting bar plot of number of great games
+
+g9 = sns.catplot(x="Company", data=great_game, hue="Company", palette=["r", "b", "g"])
 g9.set_title("Number of Great games per company", color="darkred", y=1.05)
 g9.set(xlabel="Company", ylabel="Number of games")
 g9.tick_params(axis="x", colors="darkblue")
